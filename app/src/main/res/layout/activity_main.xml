@@ -12,14 +12,17 @@
         android:id="@+id/buttonChoose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cargar Imagen" />
+        android:text="Tomar Foto" />
 
+    <!--
     <Button
         android:id="@+id/buttonUpload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Enviar Imagen" />
+        -->
 
+    <!--
     <EditText
         android:id="@+id/editTextName"
         android:layout_width="match_parent"
@@ -29,6 +32,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Nombre" />
+        -->
 
     <ImageView
         android:id="@+id/imageView"

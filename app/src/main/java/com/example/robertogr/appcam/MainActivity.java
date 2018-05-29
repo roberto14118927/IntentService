@@ -30,9 +30,10 @@ import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button buttonChoose, buttonUpload;
+    private Button buttonChoose;
+    private Button buttonUpload;
     private ImageView imageView;
-    private EditText editText;
+    //private EditText editText;
 
     private static final int REQUEST_IMAGE_CAPTURE = 1;
 
@@ -58,14 +59,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         requestStoragePermission();
 
-        buttonUpload = (Button) findViewById(R.id.buttonUpload);
+        //buttonUpload = (Button) findViewById(R.id.buttonUpload);
         buttonChoose = (Button) findViewById(R.id.buttonChoose);
 
         imageView = (ImageView) findViewById(R.id.imageView);
-        editText = (EditText) findViewById(R.id.editTextName);
+        //editText = (EditText) findViewById(R.id.editTextName);
 
         buttonChoose.setOnClickListener(this);
-        buttonUpload.setOnClickListener(this);
+        //buttonUpload.setOnClickListener(this);
 
 
 
@@ -125,6 +126,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             bitmap = (Bitmap) extras.get("data");
             imageView.setImageBitmap(bitmap);
             filePath = getImageUri(getApplicationContext(), bitmap);
+            String path = getPath(filePath);
+            Intent intent = new Intent(this, ServicesUpload.class);
+            intent.putExtra("file", path.toString());
+            startService(intent);
         }
     }
 
@@ -181,9 +186,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view){
-        if(view == buttonUpload){
+       /* if(view == buttonUpload){
             uploadImage();
-        }
+        }*/
 
         if(view == buttonChoose){
             callIntent();
